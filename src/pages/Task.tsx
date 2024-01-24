@@ -1,4 +1,3 @@
-import React from 'react';
 import { TaskComponentPropType } from './types';
 import style from "./styles/index.module.css"
 import { Card, Form } from 'react-bootstrap';
