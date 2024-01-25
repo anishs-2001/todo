@@ -1,2 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~bootstrap/dist/css/bootstrap.css";
+
+:root {
+    --main-height: 50px;
+}

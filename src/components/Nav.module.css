@@ -1,0 +1,16 @@
+.main {
+    height: var(--main-height);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: -webkit-fill-available;
+    z-index: 100;
+}
+
+.light {
+    background-color: lightsteelblue;
+}
+
+.dark {
+    background-color: blue;
+}
