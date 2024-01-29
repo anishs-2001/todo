@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useEffect, useState } from 'react'
 import { TaskPropType } from '../types';
 import axios from 'axios';
 import TaskList from './TaskList';
+import { Theme } from '../../components/themeContext/ThemeContext';
 
 const TaskListHandler = () => {
 
@@ -18,7 +19,9 @@ const TaskListHandler = () => {
 
     const [filter, setFilter] = useState<string>("All");
 
-    const [offset, setOffset] = useState<number>(10)
+    const [offset, setOffset] = useState<number>(10);
+
+    const { theme, changeTheme } = useContext(Theme);
 
     const changeStatus = (e: React.ChangeEvent<HTMLInputElement>) => {
         let taskId: number = parseInt(e.target.value);
@@ -84,6 +87,8 @@ const TaskListHandler = () => {
             prevPage={prevPage}
             nextPage={nextPage}
             offset={offset}
+            theme={theme}
+            changeTheme={changeTheme}
         />
     )
 }

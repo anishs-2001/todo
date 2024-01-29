@@ -1,14 +1,18 @@
-import React, { useState } from 'react'
-import { Navbar, ToggleButton } from 'react-bootstrap'
+import React, { useContext } from 'react'
+import { Button, Navbar } from 'react-bootstrap'
 import styles from './Nav.module.css'
+import { Theme } from './themeContext/ThemeContext'
+import { useNavigate } from 'react-router-dom'
 
 const Nav = () => {
-    const [theme, setTheme] = useState(false);
+    const { theme, changeTheme } = useContext(Theme);
+    const navigate = useNavigate();
 
     return (
         <Navbar className={`${styles.main} ${theme ? styles.light : styles.dark}`}>
             My Task App
-            <ToggleButton id={''} value={''} onClick={(e) => setTheme((prev) => !prev)}> {theme ? <>Light Theme</> : <>Dark Theme</>}</ToggleButton>
+            <Button type='button' className={`${styles.button}`} onClick={changeTheme}> {theme ? <>Light Theme</> : <>Dark Theme</>}</Button>
+            <Button type='button' className='ms-4' onClick={() => { navigate("/") }}> Logout</Button>
         </Navbar>
     )
 }

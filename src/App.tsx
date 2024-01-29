@@ -4,17 +4,25 @@ import "./App.css"
 import InputForm from './pages/InputForm';
 import TaskListHandler from './pages/TaskList/TaskListHandler';
 import Nav from './components/Nav';
+import ThemeContext from './components/themeContext/ThemeContext';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './pages/login/Login';
 
 function App() {
   return (
-    <div className="App">
-      {/* <TaskList></TaskList> */}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
 
-      {/* <InputForm></InputForm> */}
-
-      <Nav></Nav>
-      <TaskListHandler />
-    </div>
+        <Route path="/tasklist" element={
+          <ThemeContext>
+            <Nav />
+            <TaskListHandler />
+          </ThemeContext>} />
+        {/* <TaskList></TaskList> */}
+        {/* <InputForm></InputForm> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 

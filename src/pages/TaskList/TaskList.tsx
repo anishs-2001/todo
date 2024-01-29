@@ -1,11 +1,12 @@
 import Task from '../Task';
 import { Card, Container, Pagination } from 'react-bootstrap';
 import style from '../styles/index.module.css';
+import styles from '../../components/Nav.module.css'
 
-const TaskList = ({ filterFunction, status, tasks, changeStatus, filterStatusTasks, setFilter, prevPage, nextPage, offset }: any) => {
+const TaskList = ({ filterFunction, status, tasks, changeStatus, filterStatusTasks, setFilter, prevPage, nextPage, offset, theme }: any) => {
     return (
         <Container fluid className={`${style.cardContainer}`}>
-            <Card className={`m-5 ${style['customCard']}`}>
+            <Card className={`m-5 ${theme ? styles.light : styles.dark}`}>
                 <Card.Header>Task for the day
                     <select className='ms-5' onChange={(e) => { filterFunction(e); setFilter(e.target.value) }}>
                         <option selected>All</option>
